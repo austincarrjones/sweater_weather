@@ -47,8 +47,8 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'simplecov', require: false
+  gem "shoulda-matchers"
   # gem "faker"
-  # gem "shoulda-matchers"
   # gem "factory_bot_rails"
 end
 
