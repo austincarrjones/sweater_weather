@@ -1,5 +1,8 @@
-class Books
-  attr_reader
+class Book
+
+  attr_reader :isbn,
+              :title,
+              :publisher
 
   def initialize(book)
     @isbn = book[:isbn]
