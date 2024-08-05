@@ -21,7 +21,5 @@ class DailyWeather
             condition: @condition,
             icon: @icon
     }
-    # binding.pry
-    # hash
   end
 end

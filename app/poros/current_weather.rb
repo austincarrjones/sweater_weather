@@ -30,6 +30,5 @@ class CurrentWeather
             condition: @condition,
             icon: @icon
     }
-    # binding.pry
   end
 end

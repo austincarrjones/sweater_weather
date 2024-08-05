@@ -1,13 +1,13 @@
 class ForecastSerializer
-  def self.format_forecast(forecast)
+  def self.format_forecast(combined_forecast)
     {
       data: {
         id: nil,
         type: "forecast",
         attributes: {
-          current_weather: current_weather
-          # daily_weather: DailyWeather.new(forecast).format,
-          # hourly_weather: HourlyWeather.new(forecast).format
+          current_weather: combined_forecast[:current_weather],
+          daily_weather: combined_forecast[:daily_weather],
+          hourly_weather: combined_forecast[:hourly_weather]
         }
       }
     }
