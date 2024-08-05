@@ -12,39 +12,37 @@ RSpec.describe "Forecast API" do
         expect(response.status).to eq(200)
 
         forecast = JSON.parse(response.body, symbolize_names: true)
-        binding.pry
 
         expect(forecast[:data]).to be_a Hash
-        expect(forecast[:data][:id]).to eq(null)
+        expect(forecast[:data][:id]).to eq(nil)
         expect(forecast[:data][:attributes]).to be_a Hash
 
         expect(forecast[:data][:attributes][:current_weather]).to be_a Hash
         expect(forecast[:data][:attributes][:current_weather][:last_updated]).to be_a String
-        expect(forecast[:data][:attributes][:current_weather][:temperature]).to be_an Integer
+        expect(forecast[:data][:attributes][:current_weather][:temperature]).to be_a Float
         expect(forecast[:data][:attributes][:current_weather][:feels_like]).to be_a Float
         expect(forecast[:data][:attributes][:current_weather][:humidity]).to be_an Integer
-        expect(forecast[:data][:attributes][:current_weather][:uvi]).to be_an Integer
-        expect(forecast[:data][:attributes][:current_weather][:visibility]).to be_an Integer
+        expect(forecast[:data][:attributes][:current_weather][:uvi]).to be_a Float
+        expect(forecast[:data][:attributes][:current_weather][:visibility]).to be_a Float
         expect(forecast[:data][:attributes][:current_weather][:condition]).to be_an String
-        expect(forecast[:data][:attributes][:current_weather][:icon]).to be_a Png
+        expect(forecast[:data][:attributes][:current_weather][:icon]).to be_a String
 
         expect(forecast[:data][:attributes][:daily_weather]).to be_an Array
         expect(forecast[:data][:attributes][:daily_weather].first[:date]).to be_a String 
         expect(forecast[:data][:attributes][:daily_weather].first[:sunrise]).to be_a String 
         expect(forecast[:data][:attributes][:daily_weather].first[:sunset]).to be_a String 
-        expect(forecast[:data][:attributes][:daily_weather].first[:max_temp]).to be_an Integer 
-        expect(forecast[:data][:attributes][:daily_weather].first[:min_temp]).to be_an Integer 
+        expect(forecast[:data][:attributes][:daily_weather].first[:max_temp]).to be_a Float
+        expect(forecast[:data][:attributes][:daily_weather].first[:min_temp]).to be_a Float
         expect(forecast[:data][:attributes][:daily_weather].first[:condition]).to be_a String 
-        expect(forecast[:data][:attributes][:daily_weather].first[:icon]).to be_a Png
+        expect(forecast[:data][:attributes][:daily_weather].first[:icon]).to be_a String
 
         expect(forecast[:data][:attributes][:hourly_weather]).to be_an Array
         expect(forecast[:data][:attributes][:hourly_weather].first[:time]).to be_a String 
-        expect(forecast[:data][:attributes][:hourly_weather].first[:temperature]).to be_an Integer 
+        expect(forecast[:data][:attributes][:hourly_weather].first[:temperature]).to be_a Float
         expect(forecast[:data][:attributes][:hourly_weather].first[:conditions]).to be_a String 
-        expect(forecast[:data][:attributes][:hourly_weather].first[:icon]).to be_a Png 
+        expect(forecast[:data][:attributes][:hourly_weather].first[:icon]).to be_a String 
 
         # expect(forecast[:data]).not_to have_content()
-
       end
     end
   end
