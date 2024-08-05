@@ -21,15 +21,15 @@ RSpec.describe "Books API" do
 
         expect(books[:data][:attributes][:forecast]).to be_a Hash
         expect(books[:data][:attributes][:forecast][:summary]).to be_a String
-        expect(books[:data][:attributes][:forecast][:temperature]).to be_a String
+        expect(books[:data][:attributes][:forecast][:temperature]).to be_a Float
 
         expect(books[:data][:attributes][:total_books_found]).to be_an Integer
 
         expect(books[:data][:attributes][:books]).to be_an Array
         expect(books[:data][:attributes][:books].first).to be_a Hash
-        expect(books[:data][:attributes][:books].first[:isbn]).to be_a String
+        expect(books[:data][:attributes][:books].first[:isbn]).to be_an Array
         expect(books[:data][:attributes][:books].first[:title]).to be_a String
-        expect(books[:data][:attributes][:books].first[:publisher]).to be_a String
+        expect(books[:data][:attributes][:books].first[:publisher]).to be_an Array
       end
     end
   end
