@@ -16,11 +16,15 @@ RSpec.describe WeatherService do
     it "should return a response body parsed from JSON" do
       VCR.use_cassette("forecast") do
         parsed_json = WeatherService.new.forecast("39.48221, -106.04645")
-        # binding.pry
+
         expect(parsed_json).to be_a Hash
         expect(parsed_json[:forecast]).to be_a Hash
+
         expect(parsed_json[:forecast][:forecastday][0][:day][:maxtemp_f]).to be_a Float
         expect(parsed_json[:forecast][:forecastday][0][:astro][:sunrise]).to be_a String
+
+        expect(parsed_json[:forecast][:forecastday][0][:hour][0][:temp_f]).to be_a Float
+        expect(parsed_json[:forecast][:forecastday][0][:hour][0][:condition][:text]).to be_a String
       end
     end
   end

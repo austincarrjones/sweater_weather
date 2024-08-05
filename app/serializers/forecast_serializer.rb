@@ -1,10 +1,5 @@
-class CombinedFacade
-  
-  def combined_forecast(coordinates)
-    current_weather = WeatherFacade.new.current_weather(coordinates)
-    binding.pry
-    forecast = WeatherFacade.new.forecast(coordinates)
-    binding.pry
+class ForecastSerializer
+  def self.format_forecast(forecast)
     {
       data: {
         id: nil,

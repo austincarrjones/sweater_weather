@@ -10,9 +10,10 @@ class WeatherService
     # binding.pry
   end
 
-  def forecast(coordinates)
+  def daily_weather(coordinates)
     response = conn.get("/v1/forecast.json?&q=#{coordinates}&days=5&aqi=no&alerts=no")
     json = JSON.parse(response.body, symbolize_names: true)
-    # binding.pry
+    json[:forecast][:forecastday]
   end
+  
 end

@@ -9,6 +9,5 @@ class MapquestService
     json = JSON.parse(response.body, symbolize_names: true)
     latlng = json[:results][0][:locations][0][:latLng]
     #output {:lat=>39.10713, :lng=>-84.50413}
-    binding.pry
   end
 end
