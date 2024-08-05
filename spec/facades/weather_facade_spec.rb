@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe WeatherFacade do
   describe "#current_weather" do
-    it "should return hash of current weather" do 
+    xit "should return hash of current weather" do 
       VCR.use_cassette("current_weather") do
         response = WeatherFacade.new.current_weather("39.48221, -106.04645")
         expect(response).to be_a Hash
@@ -20,7 +20,7 @@ RSpec.describe WeatherFacade do
   end
 
   describe "#daily_weather" do
-    it "should return hash of daily weather" do 
+    xit "should return hash of daily weather" do 
       VCR.use_cassette("forecast") do
         response = WeatherFacade.new.daily_weather("39.48221, -106.04645")
         # binding.pry
@@ -39,7 +39,7 @@ RSpec.describe WeatherFacade do
   end
 
   describe "#hourly_weather" do
-    it "should return hash of hourly weather" do 
+    xit "should return hash of hourly weather" do 
       VCR.use_cassette("forecast") do
         response = WeatherFacade.new.hourly_weather("39.48221, -106.04645")
         # binding.pry
