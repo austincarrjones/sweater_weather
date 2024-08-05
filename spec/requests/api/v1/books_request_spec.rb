@@ -4,9 +4,10 @@ RSpec.describe "Books API" do
   describe "GET /api/v1/book-search happy path" do
     it "returns books based on destination city provided by user" do
       VCR.use_cassette("books_by_location") do
-        params = "denver,co"
+        location = "denver,co"
+        quantity = 5
         
-        get "/api/v1/book-search?location=#{params}&quantity=5"
+        get "/api/v1/book-search?location=#{location}&quantity=#{quantity}"
 
         expect(response).to be_successful
         expect(response.status).to eq(200)
