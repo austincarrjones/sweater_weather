@@ -3,10 +3,10 @@ class Api::V1::BooksController < ApplicationController
     # binding.pry
     # Params {"location"=>"denver,co", "quantity"=>"5", "controller"=>"api/v1/books", "action"=>"search"} >
     books = BookFacade.new.books_by_place(params[:location], params[:quantity])
-    binding.pry
     coordinates = MapquestFacade.new.coordinates(params[:location])
     currrent_forecast = WeatherFacade.new.current_weather(coordinates)
-    json = render json: BooksSerializer.format(currrent_forecast, books)
+    json = render json: BooksSerializer.format(currrent_forecast, books, params[:location])
+    binding.pry
   end
 end
 
