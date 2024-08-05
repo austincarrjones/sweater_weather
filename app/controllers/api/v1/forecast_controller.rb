@@ -2,8 +2,10 @@ class Api::V1::ForecastController < ApplicationController
 
   def show
     coordinates = MapquestFacade.new.coordinates(params[:location])
-    binding.pry
-    @forecast = WeatherFacade.new.forecast(coordinates)
-    render json
+    combined_data = CombinedFacade.new.combined_forecast(coordinates)
+    # binding.pry
+    
+
+   
   end
 end
