@@ -1,0 +1,87 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://openlibrary.org/search.json?fields=title,isbn,publisher&limit=5&place=denver,co
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.10.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.18.0 (Ubuntu)
+      Date:
+      - Mon, 05 Aug 2024 15:55:26 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Method:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '86400'
+      X-Ol-Stats:
+      - '"SR 1 0.042 TT 0 0.043"'
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "numFound": 4,
+            "start": 0,
+            "numFoundExact": true,
+            "docs": [
+                {
+                    "isbn": [
+                        "9780449149478",
+                        "0449149471"
+                    ],
+                    "publisher": [
+                        "Fawcett"
+                    ],
+                    "title": "Murder Mile High (Liz Sullivan Mysteries)"
+                },
+                {
+                    "publisher": [
+                        "original -Thomas Y. Crowell Co., 1943"
+                    ],
+                    "title": "Meet the Malones"
+                },
+                {
+                    "isbn": [
+                        "0615423906",
+                        "9780615423906"
+                    ],
+                    "publisher": [
+                        "Denver Health Foundation"
+                    ],
+                    "title": "Healers and hellraisers"
+                },
+                {
+                    "publisher": [
+                        "Hunting For Bears Genealogical Society and Library"
+                    ],
+                    "title": "Denver County Colorado Marriage Index 1873-1939"
+                }
+            ],
+            "num_found": 4,
+            "q": "",
+            "offset": null
+        }
+  recorded_at: Mon, 05 Aug 2024 15:55:26 GMT
+recorded_with: VCR 6.2.0
