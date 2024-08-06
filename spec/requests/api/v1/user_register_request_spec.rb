@@ -11,9 +11,8 @@ RSpec.describe "User API", type: :request do
 
       post api_v1_users_path, params: { user: user_params }
       expect(response).to have_http_status(:created)
-
       user = User.last
-      expect(user.username).to eq("user1@test.com")
+      expect(user.email).to eq("user1@test.com")
     end
 
     xit "returns an error if user is not created" do
