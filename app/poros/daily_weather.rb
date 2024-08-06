@@ -1,5 +1,11 @@
 class DailyWeather
-  attr_reader
+  attr_reader :date,
+              :sunrise,
+              :sunset,
+              :max_temp,
+              :min_temp,
+              :condition,
+              :icon
 
   def initialize(day)
     @date = day[:date]
@@ -12,14 +18,14 @@ class DailyWeather
   end
 
   def formatted
-    hash = {
-            date: @date,
-            sunrise: @sunrise,
-            sunset: @sunset,
-            max_temp: @max_temp,
-            min_temp: @min_temp,
-            condition: @condition,
-            icon: @icon
+    {
+      date: @date,
+      sunrise: @sunrise,
+      sunset: @sunset,
+      max_temp: @max_temp,
+      min_temp: @min_temp,
+      condition: @condition,
+      icon: @icon
     }
   end
 end

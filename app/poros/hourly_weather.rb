@@ -1,5 +1,8 @@
 class HourlyWeather
-  attr_reader
+  attr_reader :time,
+              :temperature,
+              :conditions,
+              :icon
 
   def initialize(hour)
     @time = hour[:time]
@@ -13,11 +16,11 @@ class HourlyWeather
   end
 
   def formatted
-    hash = {
-            time: extract_time(@time),
-            temperature: @temperature,
-            conditions: @conditions,
-            icon: @icon
+    {
+      time: extract_time(@time),
+      temperature: @temperature,
+      conditions: @conditions,
+      icon: @icon
     }
   end
 end

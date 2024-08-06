@@ -20,15 +20,15 @@ class CurrentWeather
   end
 
   def formatted
-    hash = {
-            last_updated: @last_updated,
-            temperature: @temperature,
-            feels_like: @feels_like,
-            humidity: @humidity,
-            uvi: @uvi,
-            visibility: @visibility,
-            condition: @condition,
-            icon: @icon
+    {
+      last_updated: @last_updated,
+      temperature: @temperature,
+      feels_like: @feels_like,
+      humidity: @humidity,
+      uvi: @uvi,
+      visibility: @visibility,
+      condition: @condition,
+      icon: @icon
     }
   end
 end
