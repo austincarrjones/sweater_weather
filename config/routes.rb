@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       end
       get "forecast", to: "forecast#show"
       get "book-search", to: "books#search"
-      post "road_trip", to: "road_trip#create"
+      post "road_trip", to: "road_trips#create"
     end
   end
 end

@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Road Trip API" do
   describe "POST /api/v1/road_trip happy path" do
-    it "returns road trip details and forecast of destination" do
-      # VCR.use_cassette("road_trip") do
+   it "returns road trip details and forecast of destination" do
+      VCR.use_cassette("road_trip") do
         body_params = {
           origin: "Breckenridge, CO",
           destination: "Omaha, NE",
@@ -29,7 +29,7 @@ RSpec.describe "Road Trip API" do
         expect(road_trip[:data][:attributes][:weather_at_eta][:datetime]).to be_a String
         expect(road_trip[:data][:attributes][:weather_at_eta][:temperature]).to be_a Float
         expect(road_trip[:data][:attributes][:weather_at_eta][:condition]).to be_a String
-      # end
+      end
     end
   end
 end
