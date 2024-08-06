@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [:create] do
       end
+      resources:sessions, only: [:create] do
+      end
       get "forecast", to: "forecast#show"
       get "book-search", to: "books#search"
     end
