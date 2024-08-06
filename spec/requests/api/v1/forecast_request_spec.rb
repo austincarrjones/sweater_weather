@@ -15,6 +15,7 @@ RSpec.describe "Forecast API" do
 
         expect(forecast[:data]).to be_a Hash
         expect(forecast[:data][:id]).to eq(nil)
+        expect(forecast[:data][:type]).to eq("forecast")
         expect(forecast[:data][:attributes]).to be_a Hash
 
         expect(forecast[:data][:attributes][:current_weather]).to be_a Hash
