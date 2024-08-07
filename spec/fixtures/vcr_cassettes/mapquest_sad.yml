@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.mapquestapi.com/geocoding/v1/address?key=<MAPQUEST_API_KEY>&location=not%20a%20real%20town
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.10.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 07 Aug 2024 06:47:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '676'
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - MapQuest
+      X-Request-Id:
+      - e27e53f0-5488-11ef-9bc8-e3041ddacbee
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"2a4-Jz7UtnA3VTROkfqaIQMMQcASplU"
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpbmZvIjp7InN0YXR1c2NvZGUiOjAsImNvcHlyaWdodCI6eyJ0ZXh0IjoiwqkgMjAyNCBNYXBRdWVzdCwgSW5jLiIsImltYWdlVXJsIjoiaHR0cDovL2FwaS5tcWNkbi5jb20vcmVzL21xbG9nby5naWYiLCJpbWFnZUFsdFRleHQiOiLCqSAyMDI0IE1hcFF1ZXN0LCBJbmMuIn0sIm1lc3NhZ2VzIjpbXX0sIm9wdGlvbnMiOnsibWF4UmVzdWx0cyI6LTEsImlnbm9yZUxhdExuZ0lucHV0IjpmYWxzZX0sInJlc3VsdHMiOlt7InByb3ZpZGVkTG9jYXRpb24iOnsibG9jYXRpb24iOiJub3QgYSByZWFsIHRvd24ifSwibG9jYXRpb25zIjpbeyJzdHJlZXQiOiIiLCJhZG1pbkFyZWE2IjoiIiwiYWRtaW5BcmVhNSI6IiIsImFkbWluQXJlYTQiOiIiLCJhZG1pbkFyZWEzIjoiIiwiYWRtaW5BcmVhMSI6IlVTIiwicG9zdGFsQ29kZSI6IiIsImdlb2NvZGVRdWFsaXR5Q29kZSI6IkExWEFYIiwiZ2VvY29kZVF1YWxpdHkiOiJDT1VOVFJZIiwiZHJhZ1BvaW50IjpmYWxzZSwic2lkZU9mU3RyZWV0IjoiTiIsImxpbmtJZCI6IjAiLCJ1bmtub3duSW5wdXQiOiIiLCJ0eXBlIjoicyIsImxhdExuZyI6eyJsYXQiOjM4Ljg5MDM3LCJsbmciOi03Ny4wMzE5Nn0sImRpc3BsYXlMYXRMbmciOnsibGF0IjozOC44OTAzNywibG5nIjotNzcuMDMxOTZ9LCJtYXBVcmwiOiIiLCJzb3VyY2UiOiJGQUxMQkFDSyJ9XX1dfQ==
+  recorded_at: Wed, 07 Aug 2024 06:47:16 GMT
+recorded_with: VCR 6.2.0

@@ -1,12 +1,6 @@
 class RoadTripFacade
   def road_trip(origin, destination)
-    road_trip = MapquestFacade.new.road_trip(origin, destination)
-    # if road_trip[:travel_time] == "Impossible"
-    #   road_trip #{:start_city=>"Breckenridge, CO", :end_city=>"London, UK", :travel_time=>"Impossible"}
-    # else
-    #   binding.pry
-    #   road_trip[:start_end_time]
-    # end
+    MapquestFacade.new.road_trip(origin, destination)
   end
 
   def coordinates(destination)
@@ -14,7 +8,6 @@ class RoadTripFacade
   end
 
   def eta(road_trip)
-    # binding.pry
     eta = road_trip[:eta]
     date, time = eta.split(' ')
     time_obj = Time.parse(time)
@@ -36,7 +29,6 @@ class RoadTripFacade
 
   def weather_at_eta(coordinates, eta)
     WeatherFacade.new.weather_at_eta(coordinates, eta[:date], eta[:rounded_hour])
-    # [{:datetime=>"2024-08-07 06:00", :temperature=>57.3, :condition=>"Mist"}]
   end
 
 end

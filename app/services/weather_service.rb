@@ -25,6 +25,5 @@ class WeatherService
     response = conn.get("/v1/forecast.json?&q=#{coordinates}&days=5&aqi=no&alerts=no&date=#{date}&hour=#{rounded_hour}")
     json = JSON.parse(response.body, symbolize_names: true)
     json[:forecast][:forecastday].first[:hour]
-    # [{:time=>"2024-08-07 06:00", :temp_f=>57.3, :is_day=>0, :condition=>{:text=>"Mist", :icon=>"//cdn.weatherapi.com/weather/64x64/night/143.png", :code=>1030}}]
   end
 end

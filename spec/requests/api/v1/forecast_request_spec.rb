@@ -43,24 +43,26 @@ RSpec.describe "Forecast API" do
         expect(forecast[:data][:attributes][:hourly_weather].first[:conditions]).to be_a String 
         expect(forecast[:data][:attributes][:hourly_weather].first[:icon]).to be_a String 
 
-        # expect(forecast[:data]).not_to have_content()
+        expect(forecast[:data]).not_to have_content()
       end
     end
   end
 
-  describe "GET /api/v1/forecast sad path" do
-    xit "will gracefully handle if a city/state is incorrect" do
-      params = "cincinatti,oh"
+  # describe "GET /api/v1/forecast sad path" do
+  #   VCR.use_cassette("empty_location") do
+  #     it "will gracefully handle if a city/state is incorrect" do
+  #       params = ""
 
-      get "/api/v1/forecast?location=#{params}"
-      expect(response).to_not be_successful
-      expect(response.status).to eq(404)
+  #       get "/api/v1/forecast?location=#{params}"
+  #       expect(response).to_not be_successful
+  #       expect(response.status).to eq(404)
 
-      data = JSON.parse(response.body, symbolize_names: true)
-      
-      expect(data[:errors]).to be_a(Array)
-      expect(data[:errors].first[:status]).to eq("404")
-      expect(data[:errors].first[:title]).to eq("Couldn't find weather with location=zanzibar")
-    end
-  end
+  #       data = JSON.parse(response.body, symbolize_names: true)
+  #       binding.pry
+  #       expect(data[:errors]).to be_a(Array)
+  #       expect(data[:errors].first[:status]).to eq("404")
+  #       expect(data[:errors].first[:title]).to eq("Couldn't find weather with location=zanzibar")
+  #     end
+  #   end
+  # end
 end

@@ -8,7 +8,6 @@ class Api::V1::RoadTripsController < ApplicationController
       if road_trip[:travel_time] == "Impossible"
         render json: RoadTripSerializer.format_impossible_road_trip(road_trip)
       else
-        # binding.pry
         eta = RoadTripFacade.new.eta(road_trip)
         coordinates = RoadTripFacade.new.coordinates(params[:destination])
         weather_at_eta = RoadTripFacade.new.weather_at_eta(coordinates, eta)

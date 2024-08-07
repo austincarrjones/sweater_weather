@@ -10,13 +10,13 @@ RSpec.describe MapquestFacade do
       end
     end
 
-    xit "should return error hash if unsuccessful" do 
-      VCR.use_cassette("mapquest_sad") do
-        response = MapquestFacade.new.coordinates("z1")
-     
-        expect(response).to be_a Hash
-        expect(response[:errors]).to be_a Hash
-      end
-    end
+    # it "should return error hash if unsuccessful" do 
+    #   VCR.use_cassette("mapquest_sad") do
+    #     response = MapquestFacade.new.coordinates("not a real town")
+    #     binding.pry
+    #     expect(response).to be_a Hash
+    #     expect(response[:errors]).to be_a Hash
+    #   end
+    # end
   end
 end
