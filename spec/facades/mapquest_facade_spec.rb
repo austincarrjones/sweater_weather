@@ -9,14 +9,5 @@ RSpec.describe MapquestFacade do
         expect(response).to be_a String
       end
     end
-
-    # it "should return error hash if unsuccessful" do 
-    #   VCR.use_cassette("mapquest_sad") do
-    #     response = MapquestFacade.new.coordinates("not a real town")
-    #     binding.pry
-    #     expect(response).to be_a Hash
-    #     expect(response[:errors]).to be_a Hash
-    #   end
-    # end
   end
 end
