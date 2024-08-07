@@ -8,10 +8,10 @@ class RoadTripSerializer
           start_city: road_trip[:start_city],
           end_city: road_trip[:end_city],
           travel_time: road_trip[:travel_time],
-          weather_at_eta: {
-            datetime: ___,
-            temperature: weather_at_eta[:temperature],
-            condition: weather_at_eta[:condition]
+          weather_at_eta: { 
+            datetime: weather_at_eta.first[:datetime],
+            temperature: weather_at_eta.first[:temperature],
+            condition: weather_at_eta.first[:condition]
           }
         }
       }

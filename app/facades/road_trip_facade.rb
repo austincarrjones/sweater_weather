@@ -30,10 +30,9 @@ class RoadTripFacade
   end
 
   def weather_at_eta(coordinates, eta)
-    # binding.pry
     weather_at_eta = WeatherFacade.new.weather_at_eta(coordinates, eta[:date], eta[:rounded_hour])
-    binding.pry
-    #pinpoint hour of the hash here
+    weather_at_eta
+    # [{:datetime=>"2024-08-07 06:00", :temperature=>57.3, :condition=>"Mist"}]
   end
 
 end

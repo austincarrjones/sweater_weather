@@ -4,7 +4,6 @@ class ArrivalWeather
               :condition
 
   def initialize(data)
-    binding.pry
     @datetime = data[:time]
     @temperature = data[:temp_f]
     @condition = data[:condition][:text]
