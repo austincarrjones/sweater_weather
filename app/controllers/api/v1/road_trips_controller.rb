@@ -5,10 +5,15 @@ class Api::V1::RoadTripsController < ApplicationController
   def create
     if params[:api_key]
       road_trip = RoadTripFacade.new.road_trip(params[:origin], params[:destination])
-      eta = RoadTripFacade.new.eta(params[:origin], params[:destination])
-      coordinates = RoadTripFacade.new.coordinates(params[:destination])
-      weather_at_eta = RoadTripFacade.new.weather_at_eta(coordinates, eta)
-      render json: RoadTripSerializer.format_road_trip(road_trip, weather_at_eta)
+      if road_trip[:travel_time] == "Impossible"
+        render json: RoadTripSerializer.format_impossible_road_trip(road_trip)
+      else
+        # binding.pry
+        eta = RoadTripFacade.new.eta(road_trip)
+        coordinates = RoadTripFacade.new.coordinates(params[:destination])
+        weather_at_eta = RoadTripFacade.new.weather_at_eta(coordinates, eta)
+        render json: RoadTripSerializer.format_road_trip(road_trip[:start_end_time], weather_at_eta)
+      end
     else
       render json: { error: "bad credentials"}, status: :unauthorized
     end

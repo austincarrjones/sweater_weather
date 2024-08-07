@@ -1,19 +1,20 @@
 class RoadTripFacade
   def road_trip(origin, destination)
     road_trip = MapquestFacade.new.road_trip(origin, destination)
-    if road_trip[:travel_time] == "Impossible"
-      road_trip
-    else
-      road_trip[:start_end_time]
-    end
+    # if road_trip[:travel_time] == "Impossible"
+    #   road_trip #{:start_city=>"Breckenridge, CO", :end_city=>"London, UK", :travel_time=>"Impossible"}
+    # else
+    #   binding.pry
+    #   road_trip[:start_end_time]
+    # end
   end
 
   def coordinates(destination)
     MapquestFacade.new.coordinates(destination)
   end
 
-  def eta(origin, destination)
-    road_trip = MapquestFacade.new.road_trip(origin, destination)
+  def eta(road_trip)
+    # binding.pry
     eta = road_trip[:eta]
     date, time = eta.split(' ')
     time_obj = Time.parse(time)

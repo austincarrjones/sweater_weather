@@ -70,7 +70,7 @@ RSpec.describe "Road Trip API" do
 
         expect(response).to be_successful
         expect(response.status).to eq(200)
-        binding.pry
+
         road_trip = JSON.parse(response.body, symbolize_names: true)
 
         expect(road_trip[:data]).to be_a Hash
@@ -79,9 +79,9 @@ RSpec.describe "Road Trip API" do
         expect(road_trip[:data][:attributes]).to be_a Hash
 
         expect(road_trip[:data][:attributes][:start_city]).to eq("Breckenridge, CO")
-        expect(road_trip[:data][:attributes][:end_city]).to eq ("Omaha, NE")
+        expect(road_trip[:data][:attributes][:end_city]).to eq ("London, UK")
         expect(road_trip[:data][:attributes][:travel_time]).to eq("Impossible")
-        expect(road_trip[:data][:attributes][:weather_at_eta]).to eq(nil)
+        expect(road_trip[:data][:attributes][:weather_at_eta]).to eq({})
       end
     end
   end
