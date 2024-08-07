@@ -7,7 +7,6 @@ class Api::V1::RoadTripsController < ApplicationController
       # travel time (MapQuest API, new endpoint)
       # weather at eta (hourly weather based on approx arrival time)
     if params[:api_key]
-      binding.pry
       road_trip = RoadTripFacade.new.road_trip(params[:origin], params[:destination])
       eta = RoadTripFacade.new.eta(params[:origin], params[:destination])
       coordinates = RoadTripFacade.new.coordinates(params[:destination])

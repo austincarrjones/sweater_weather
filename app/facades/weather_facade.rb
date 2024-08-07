@@ -25,4 +25,12 @@ class WeatherFacade
       hourly_weather: hourly_weather(coordinates)
     }
   end
+
+  def weather_at_eta(coordinates, date, rounded_hour)
+    weather_data = WeatherService.new.weather_at_eta(coordinates, date, rounded_hour)
+    binding.pry
+    weather_data.map do |data|
+      ArrivalWeather.new(data).formatted
+    end
+  end
 end
