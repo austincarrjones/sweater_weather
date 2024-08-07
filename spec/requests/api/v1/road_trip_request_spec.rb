@@ -31,6 +31,8 @@ RSpec.describe "Road Trip API" do
         expect(road_trip[:data][:attributes][:weather_at_eta][:datetime]).to be_a String
         expect(road_trip[:data][:attributes][:weather_at_eta][:temperature]).to be_a Float
         expect(road_trip[:data][:attributes][:weather_at_eta][:condition]).to be_a String
+
+        expect(road_trip[:data]).not_to have_key([:error])
       end
     end
   end

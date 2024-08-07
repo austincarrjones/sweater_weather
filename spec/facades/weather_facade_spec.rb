@@ -16,8 +16,6 @@ RSpec.describe WeatherFacade do
         expect(response[:visibility]).to be_a Float
         expect(response[:condition]).to be_a String
         expect(response[:icon]).to be_a String
-
-        # expect(response).to not
       end
     end
   end

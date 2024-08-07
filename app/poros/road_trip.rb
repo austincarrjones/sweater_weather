@@ -1,7 +1,8 @@
 class RoadTrip
   attr_reader :start_city,
               :end_city,
-              :travel_time
+              :travel_time,
+              :travel_time_seconds
 
   def initialize(origin, destination, travel_time)
     @start_city = origin
