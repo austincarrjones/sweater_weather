@@ -1,7 +1,8 @@
 class Api::V1::RoadTripsController < ApplicationController
+  
+  before_action :authenticate_api_key, only: [:create]
 
   def create
-    # params = {"origin"=>"Breckenridge, CO", "destination"=>"Omaha, NE", "api_key"=>"t1h2i3s4_i5s6_l7e8g9i10t11"
     if params[:api_key]
       road_trip = RoadTripFacade.new.road_trip(params[:origin], params[:destination])
       eta = RoadTripFacade.new.eta(params[:origin], params[:destination])
@@ -10,6 +11,18 @@ class Api::V1::RoadTripsController < ApplicationController
       render json: RoadTripSerializer.format_road_trip(road_trip, weather_at_eta)
     else
       render json: { error: "bad credentials"}, status: :unauthorized
+    end
+  end
+
+
+  private
+
+  def authenticate_api_key
+    api_key = params[:api_key]
+    @user = User.find_by(api_key: api_key)
+
+    if @user.nil?
+      render json: { error: "Invalid API key" }, status: :unauthorized
     end
   end
 end

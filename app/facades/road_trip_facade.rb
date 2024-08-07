@@ -1,7 +1,11 @@
 class RoadTripFacade
   def road_trip(origin, destination)
     road_trip = MapquestFacade.new.road_trip(origin, destination)
-    road_trip[:start_end_time]
+    if road_trip[:travel_time] == "Impossible"
+      road_trip
+    else
+      road_trip[:start_end_time]
+    end
   end
 
   def coordinates(destination)
@@ -30,8 +34,7 @@ class RoadTripFacade
   end
 
   def weather_at_eta(coordinates, eta)
-    weather_at_eta = WeatherFacade.new.weather_at_eta(coordinates, eta[:date], eta[:rounded_hour])
-    weather_at_eta
+    WeatherFacade.new.weather_at_eta(coordinates, eta[:date], eta[:rounded_hour])
     # [{:datetime=>"2024-08-07 06:00", :temperature=>57.3, :condition=>"Mist"}]
   end
 

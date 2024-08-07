@@ -6,21 +6,19 @@ class WeatherService
 
   def current_weather(coordinates)
     response = conn.get("/v1/current.json?&q=#{coordinates}&aqi=no")
-    json = JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def daily_weather(coordinates)
     response = conn.get("/v1/forecast.json?&q=#{coordinates}&days=5&aqi=no&alerts=no")
     json = JSON.parse(response.body, symbolize_names: true)
-    daily_data = json[:forecast][:forecastday]
-    daily_data
+    json[:forecast][:forecastday]
   end
 
   def hourly_weather(coordinates)
     response = conn.get("/v1/forecast.json?&q=#{coordinates}&days=5&aqi=no&alerts=no")
     json = JSON.parse(response.body, symbolize_names: true)
-    hourly_data = json[:forecast][:forecastday].first[:hour]
-    hourly_data
+    json[:forecast][:forecastday].first[:hour]
   end
 
   def weather_at_eta(coordinates, date, rounded_hour)

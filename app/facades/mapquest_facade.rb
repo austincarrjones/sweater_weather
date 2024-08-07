@@ -6,10 +6,19 @@ class MapquestFacade
 
   def road_trip(origin, destination)
     travel_time = MapquestService.new.travel_time(origin, destination)
-    road_trip = RoadTrip.new(origin, destination, travel_time)
-    {
-      start_end_time: road_trip.formatted,
-      eta: road_trip.eta
-    }
+    if travel_time[:routeError] # "Impossible"
+      {
+        start_city: origin,
+        end_city: destination,
+        travel_time: "Impossible"
+      }
+    else
+      road_trip = RoadTrip.new(origin, destination, travel_time)
+      {
+        start_end_time: road_trip.formatted,
+        eta: road_trip.eta
+      }
+    end
+    
   end
 end
