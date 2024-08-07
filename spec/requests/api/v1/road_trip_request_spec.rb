@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Road Trip API" do
   describe "POST /api/v1/road_trip happy path" do
    it "returns road trip details and forecast of destination" do
-      VCR.use_cassette("road_trip") do
+      VCR.use_cassette("road_trip_and_time") do
         body_params = {
           origin: "Breckenridge, CO",
           destination: "Omaha, NE",

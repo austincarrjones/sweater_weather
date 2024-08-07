@@ -6,11 +6,16 @@ class Api::V1::RoadTripsController < ApplicationController
       # output = json with:
       # travel time (MapQuest API, new endpoint)
       # weather at eta (hourly weather based on approx arrival time)
-    
-    road_trip = MapquestFacade.new.road_trip(params[:origin], params[:destination])
-    coordinates = MapquestFacade.new.coordinates(params[:destination])
-    weather_at_eta = WeatherFacade.new.hourly_weather(coordinates)
-
-    render json: RoadTripSerializer.format_road_trip(road_trip, weather_at_eta)
+    if params[:api_key]
+      binding.pry
+      road_trip = RoadTripFacade.new.road_trip(params[:origin], params[:destination])
+      eta = RoadTripFacade.new.eta(params[:origin], params[:destination])
+      coordinates = RoadTripFacade.new.coordinates(params[:destination])
+      weather_at_eta = RoadTripFacade.new.weather_at_eta(coordinates, eta)
+  
+      render json: RoadTripSerializer.format_road_trip(road_trip, weather_at_eta)
+    else
+      binding.pry
+    end
   end
 end

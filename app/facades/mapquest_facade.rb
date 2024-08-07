@@ -6,6 +6,10 @@ class MapquestFacade
 
   def road_trip(origin, destination)
     travel_time = MapquestService.new.travel_time(origin, destination)
-    RoadTrip.new(origin, destination, travel_time).formatted
+    road_trip = RoadTrip.new(origin, destination, travel_time)
+    {
+      start_end_time: road_trip.formatted,
+      eta: road_trip.eta
+    }
   end
 end

@@ -11,11 +11,8 @@ class MapquestService
   end
 
   def travel_time(origin, destination)
-    binding.pry
     response = conn.get("/directions/v2/route?from=#{origin}&to=#{destination}")
     json = JSON.parse(response.body, symbolize_names: true)
-    binding.pry
-    json[:route][:formattedTime]
-    # :formattedTime=>"08:23:57"
+    json[:route]
   end
 end
